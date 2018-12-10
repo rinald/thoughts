@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// This class represents a thought
 class Thought {
   final String username;
   final String thought;
@@ -18,7 +17,6 @@ class Thought {
     };
 }
 
-// This widget displays a thought as a [ListTile]
 class ThoughtTile extends StatelessWidget {
   final Thought thought;
   ThoughtTile(this.thought);

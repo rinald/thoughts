@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-// This page allows the user to change the app's settings
-// In this case it allows the user to change their username
 class SettingsPage extends StatelessWidget {
   final config;
   final Function callback;

@@ -1,5 +1,5 @@
 name: Thoughts
-description: A simple flutter application.
+description: A simple app written with Flutter.
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -7,7 +7,7 @@ description: A simple flutter application.
 # Both the version and the builder number may be overridden in flutter
 # build by specifying --build-name and --build-number, respectively.
 # Read more about versioning at semver.org.
-version: 0.2.0
+version: 0.3.0
 
 environment:
   sdk: ">=2.0.0-dev.68.0 <3.0.0"
@@ -18,7 +18,6 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^0.1.2
   cloud_firestore: ^0.8.2+3
   shared_preferences: ^0.4.3
   

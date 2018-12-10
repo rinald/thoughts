@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'thought.dart';
 
-// The type to be used by AppOptions
 enum MenuEntry {
   settings,
   about
 }
 
-// This widget shows a popup menu of possible options (defined above)
 class AppOptions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -38,8 +36,6 @@ class AppOptions extends StatelessWidget {
   }
 }
 
-// This widget displays a scrollable list of thoughts
-// It updates in real time
 class MainView extends StatefulWidget {
   @override
   _MainViewState createState() => _MainViewState();
@@ -68,8 +64,6 @@ class _MainViewState extends State<MainView> {
   }
 }
 
-// This is the main page of the app
-// It always shows first when you open the app
 class HomePage extends StatelessWidget {
   final config;
   HomePage(this.config);

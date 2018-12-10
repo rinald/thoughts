@@ -5,7 +5,6 @@ import 'settings_page.dart';
 import 'post_page.dart';
 import 'about_page.dart';
 
-// This class is used to manage app configurations
 class AppConfig {
   final String title;
   ThemeData theme;
@@ -14,22 +13,19 @@ class AppConfig {
   AppConfig({@required this.title, this.theme, this.username});
 }
 
-// This is the actual app
 class App extends StatefulWidget {
   @override
   _AppState createState() => _AppState();
 }
 
 class _AppState extends State<App> {
-  // The configuration for this app
-  var _config = AppConfig(
+  AppConfig _config = AppConfig(
     title: 'Thoughts',
     theme: ThemeData(
       primarySwatch: Colors.teal,
     ),
   );
 
-  // Read the saved username, if any
   void _init() async {
     var prefs = await SharedPreferences.getInstance();
     setState(() {
@@ -37,7 +33,6 @@ class _AppState extends State<App> {
     });
   }
 
-  // Update the state of the app
   void _update(String username) async {
     var prefs = await SharedPreferences.getInstance();
     prefs.setString('username', username);
