@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
 
+// class SettingsPage extends StatefulWidget {
+//   final config;
+//   final Function callback;
+//   SettingsPage(this.config, {this.callback});
+
+//   @override
+//   _SettingsPageState createState() => _SettingsPageState(config, callback: callback); 
+// }
+
 class SettingsPage extends StatelessWidget {
   final config;
   final Function callback;
@@ -12,19 +21,29 @@ class SettingsPage extends StatelessWidget {
         title: Text('Settings'),
       ),
       body: Container(
-        padding: EdgeInsets.all(10.0),
         child: Column(
           children: <Widget>[
-            TextFormField(
-              initialValue: config.username,
-              onFieldSubmitted: (username) {
-                callback(username);
-                Navigator.of(context).pop();
-              },
-              decoration: InputDecoration(
-                labelText: 'Username',
+            ListTile(
+              title: TextFormField(
+                initialValue: config.username,
+                onFieldSubmitted: (username) {
+                  config.username = username;
+                  callback(config);
+                },
+                decoration: InputDecoration(
+                  labelText: 'Username',
+                ),
               ),
-            )
+            ),
+            SwitchListTile(
+              title: Text('Dark theme'),
+              subtitle: Text('Enable dark theme throughout the app'),
+              value: config.darkThemeEnabled,
+              onChanged: (value) {
+                config.darkThemeEnabled = value;
+                callback(config);
+              }
+            ),
           ],
         ),
       ),

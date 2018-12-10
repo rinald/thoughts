@@ -4,13 +4,14 @@ import 'home_page.dart';
 import 'settings_page.dart';
 import 'post_page.dart';
 import 'about_page.dart';
+import 'themes.dart';
 
 class AppConfig {
   final String title;
-  ThemeData theme;
+  bool darkThemeEnabled;
   String username;
 
-  AppConfig({@required this.title, this.theme, this.username});
+  AppConfig({@required this.title, this.username, this.darkThemeEnabled});
 }
 
 class App extends StatefulWidget {
@@ -21,23 +22,23 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   AppConfig _config = AppConfig(
     title: 'Thoughts',
-    theme: ThemeData(
-      primarySwatch: Colors.teal,
-    ),
   );
 
   void _init() async {
     var prefs = await SharedPreferences.getInstance();
     setState(() {
-      _config.username = prefs.getString('username') ?? '';    
+      _config.username = prefs.getString('username') ?? '';
+      _config.darkThemeEnabled = prefs.getBool('darkThemeEnabled') ?? false;
     });
   }
 
-  void _update(String username) async {
+  void _update(AppConfig config) async {
     var prefs = await SharedPreferences.getInstance();
-    prefs.setString('username', username);
+    prefs.setString('username', config.username);
+    prefs.setBool('darkThemeEnabled', config.darkThemeEnabled);
     setState(() {
-      _config.username = username;
+      _config.username = config.username;
+      _config.darkThemeEnabled = config.darkThemeEnabled;
     });
   }
 
@@ -51,7 +52,7 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: _config.title,
-      theme: _config.theme,
+      theme: _config.darkThemeEnabled ? darkTheme : lightTheme,
       initialRoute: '/',
       routes: {
         '/': (context) => HomePage(_config),

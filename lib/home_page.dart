@@ -36,12 +36,7 @@ class AppOptions extends StatelessWidget {
   }
 }
 
-class MainView extends StatefulWidget {
-  @override
-  _MainViewState createState() => _MainViewState();
-}
-
-class _MainViewState extends State<MainView> {
+class MainView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
