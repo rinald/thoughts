@@ -1,14 +1,5 @@
 import 'package:flutter/material.dart';
 
-// class SettingsPage extends StatefulWidget {
-//   final config;
-//   final Function callback;
-//   SettingsPage(this.config, {this.callback});
-
-//   @override
-//   _SettingsPageState createState() => _SettingsPageState(config, callback: callback); 
-// }
-
 class SettingsPage extends StatelessWidget {
   final config;
   final Function callback;

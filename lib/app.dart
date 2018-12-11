@@ -22,6 +22,7 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   AppConfig _config = AppConfig(
     title: 'Thoughts',
+    darkThemeEnabled: false,
   );
 
   void _init() async {
