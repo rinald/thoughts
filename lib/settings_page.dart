@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'app.dart' show AppConfig;
 
+// The page where the user can set their app preferences.
+// The username should be set here the first time the user opens the app.
+// There is also an option to change the app theme.
+// Saved preferences (if any) are loaded each time the app is opened.
 class SettingsPage extends StatelessWidget {
-  final config;
-  final Function callback;
+  final AppConfig config;
+  final Function callback; // the callback to update the app state
   SettingsPage(this.config, {this.callback});
 
   @override

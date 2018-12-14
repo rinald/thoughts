@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'thought.dart';
 
+// The type used by [AppOptions].
 enum MenuEntry {
   settings,
   about
 }
 
+// Show a popup menu of app options.
 class AppOptions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -36,9 +38,15 @@ class AppOptions extends StatelessWidget {
   }
 }
 
+// Display a list of all uploaded thoughts (as [ThoughtTile]s).
+// Thoughts are read from the database and stored locally.
+// If the app is offline, stored thoughts are always showed.
+// When there are new thoughts and the app is online, they are adden in real time.
 class MainView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // The use of [StreamBuilder] makes it possible to show new thoughts in real time
+    // Refer to the documentation of [Stream](Dart) and [StreamBuilder](Flutter) for more details
     return StreamBuilder(
       stream: Firestore.instance.collection('thoughts').snapshots(),
       builder: (_, snapshot) {
@@ -59,15 +67,13 @@ class MainView extends StatelessWidget {
   }
 }
 
+// The main page of the app.
 class HomePage extends StatelessWidget {
-  final config;
-  HomePage(this.config);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(config.title),
+        title: Text('Thoughts'),
         actions: <Widget>[
           AppOptions(),
         ],
@@ -75,6 +81,7 @@ class HomePage extends StatelessWidget {
       body: MainView(),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
+        tooltip: 'Post a thought',
         onPressed: () => Navigator.of(context).pushNamed('/post'),
       ),
     );

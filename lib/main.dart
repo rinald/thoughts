@@ -1,5 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/widgets.dart' show runApp;
 import 'app.dart';
 
-// TODO: Re-add more meaningful comments
 void main() => runApp(App());
