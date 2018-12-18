@@ -14,7 +14,7 @@ class PostPage extends StatelessWidget {
   // the post will be automatically added to the database.
   void _post(String thought) {
     var _thought = Thought(config.username, thought);
-    // The thought is turned into a json-like object and is added to the database
+    // The thought is turned into a json-like object and then added to the database
     Firestore.instance.collection('thoughts').add(_thought.toJson());
   }
 

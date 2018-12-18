@@ -40,7 +40,7 @@ class AppOptions extends StatelessWidget {
 
 // Display a list of all uploaded thoughts (as [ThoughtTile]s).
 // Thoughts are read from the database and stored locally.
-// If the app is offline, stored thoughts are always showed.
+// If the app is offline, stored thoughts are always shown.
 // When there are new thoughts and the app is online, they are adden in real time.
 class MainView extends StatelessWidget {
   @override
